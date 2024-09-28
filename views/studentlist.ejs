@@ -1,0 +1,36 @@
+<%- include('./base/header.ejs') %>
+    <div class="container">
+        <div class="row">
+            <h4 class="text-center my-3">Student List</h4>
+           <table class="table text-center">
+            <thead>
+                <tr>
+                    <th>Roll No</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Father Name</th>
+                    <th>Adhar Card</th>
+                    <th>Mobile No</th>
+                    <th>Actions</th>
+                </tr>
+                <% students.forEach((student)=>{  %>
+                <td>
+                    <td><%= student.rollNo %></td>
+                    <td><%= student.firstName %></td>
+                    <td><%= student.lastName %></td>
+                    <td><%= student.fatherName %></td>
+                    <td><%= student.adharCardNo %></td>
+                    <td><%= student.mobileNo %></td>
+                    <td>
+                        <a href="/student/page/for/edit/<%= student._id %>" class="btn btn-warning w-40">Edit</a>
+                        <a href="/student/delete/<%= student._id %>" class="btn btn-danger w-40">Delete</a>
+                    </td>
+                  </tr>
+                <% }) %>
+            </thead>
+           </table>
+
+        </div>
+    </div>
+ 
+<%- include('./base/footer.ejs') %>
